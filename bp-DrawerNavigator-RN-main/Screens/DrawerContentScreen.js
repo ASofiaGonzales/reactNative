@@ -4,15 +4,13 @@ import {View, StyleSheet} from "react-native";
 import { Icon } from 'react-native-elements'
 
 export class DrawerContentScreen extends Component {
-
-    handlerConfiguration(){
-        console.log("Configuration");
+    constructor(props){
+        super(props);        
     }
 
-    handlerLogout(){
-        console.log("Logout");
+    handlerLogout = () => {
+        this.props.onLogout();
     }
-
     render(){
 
         return(
@@ -36,12 +34,7 @@ export class DrawerContentScreen extends Component {
                         />
                     </View>
                 </DrawerContentScrollView>
-                <View style={styles.bottomDrawer}>
-                    <DrawerItem 
-                        icon={() => <Icon type="material-community" name="cogs" style={styles.icon}/>}
-                        label="Configuration"
-                        onPress={() => this.handlerConfiguration()}
-                    />
+                <View style={styles.bottomDrawer}>                    
                     <DrawerItem 
                         icon={() => <Icon type="material-community" name="logout" style={styles.icon}/>}
                         label="Logout"
